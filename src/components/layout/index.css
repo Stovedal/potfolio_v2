@@ -13,6 +13,7 @@ body {
   color: #373F49;
   background: #eee;
   margin: 0;
+  min-width: 800px;
 }
 
 img {
@@ -23,7 +24,9 @@ img {
 h1,
 h2,
 h3 {
-  font-size: 2em;
+  font-size: 1em;
+  color: hotpink;
+  font-weight: bold;
   font-weight: normal;
 }
 
