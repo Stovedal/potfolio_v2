@@ -11,8 +11,6 @@ export const Text = styled.p`
 			max-width: 40rem;
 		`
 
-
-
 export const Row = styled.div`
 	display: flex;
 	align-items: center;
@@ -34,6 +32,8 @@ export const SiteBackground = styled.div `
 	margin: 0;
 	padding: 0;
 	background: ${colors.background};
+	min-width: 800px;
+
 `
 
 export const PrimaryDiv = styled.div`
@@ -45,11 +45,27 @@ export const PrimaryDiv = styled.div`
 	opacity: 0.87;
 `
 
-export const TopBar = styled(PrimaryDiv)`
+export const TopBar = styled.div`
 	display:flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 	padding: 0rem;
+	background: transparent;
+	position:sticky;
+	width:100%;
+	top:1rem;
+	z-index:1;
+`
+
+export const NavButton = styled.div`
+	padding: 0.5rem 1.5rem;
+	text-decoration: none;
+	background: white;
+	opacity:0.87;
+	:hover {
+		opacity: 1;
+	}
+	transition: 0.1s ease-in;
 `
 
 export const Elevation = styled.div`

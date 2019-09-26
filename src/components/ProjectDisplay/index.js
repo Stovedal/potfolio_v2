@@ -5,14 +5,14 @@ import styles from './index.module.css'
 import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
 
-export const section = { approach: "Approach", challenges: "Challenges", solution: "Solution", outcome: "Outcome" };
+export const section = { process: "Process", challenges: "Challenges", outcome: "Outcome" };
 
 export default class ProjectDisplay extends Component {
 
 	constructor(props) {
 		super(props)
 		this.state = {
-			section: section.approach
+			section: section.process
 		}
 	}
 
@@ -21,31 +21,24 @@ export default class ProjectDisplay extends Component {
 		console.log(this.props);
 
 		return (
-			<div>
 
-				<Body>
-					
-					<Content>
+			<Body>
+								<Content>
 					<Menu>
-					<MenuItem active={this.state.section == section.approach} onClick={() => this.setState({ section: section.approach })}>{section.approach}</MenuItem>
-					<MenuItem active={this.state.section == section.challenges} onClick={() => this.setState({ section: section.challenges })}>{section.challenges}</MenuItem>
-					<MenuItem active={this.state.section == section.solution} onClick={() => this.setState({ section: section.solution })}>{section.solution}</MenuItem>
-					<MenuItem active={this.state.section == section.outcome} onClick={() => this.setState({ section: section.outcome })}>{section.outcome}</MenuItem>
-				</Menu>
-						<Title>{this.state.section}</Title>
-						{this.getContent()}
-					</Content>
-					<ImageContainer>
-							<Img style={{ minWidth: "200px"}} sizes={this.getImage()} />
-					</ImageContainer>
-				</Body>
-			</div>
+						<MenuItem active={this.state.section == section.process} onClick={() => this.setState({ section: section.process })}>{section.process}</MenuItem>
+						<MenuItem active={this.state.section == section.challenges} onClick={() => this.setState({ section: section.challenges })}>{section.challenges}</MenuItem>
+						<MenuItem active={this.state.section == section.outcome} onClick={() => this.setState({ section: section.outcome })}>{section.outcome}</MenuItem>
+					</Menu>
+					{this.getContent()}
+				</Content>
+				<Background sizes={this.getImage()}/>
+			</Body>
 		)
 	}
 
 	getContent() {
 		switch (this.state.section) {
-			case section.approach:
+			case section.process:
 				return this.props.project.approach
 			case section.challenges:
 				return this.props.project.challenges
@@ -56,10 +49,10 @@ export default class ProjectDisplay extends Component {
 		}
 	}
 
-	getImage(){
+	getImage() {
 		switch (this.state.section) {
-			case section.approach:
-				return this.props.project.approachImage.sizes
+			case section.process:
+				return this.props.project.thumbImage.sizes
 			case section.challenges:
 				return this.props.project.challengesImage.sizes
 			case section.solution:
@@ -72,9 +65,14 @@ export default class ProjectDisplay extends Component {
 
 
 
+const Background = styled(BackgroundImage)`
+	height: 100%;
+	width: 60%;
+	animation: ${fadeIn} 0.5s 0s;
+`
 
 const ImageContainer = styled.div`
-	width: 14vw;
+	height: 50vh;
 	padding: 0rem 4rem;
 `
 
@@ -84,20 +82,15 @@ const Body = styled.div`
 	margin:1rem;
 	align-items: space-between;
 	justify-content: space-between;
-	width:100%;
-	height:100%;
 `
 
 
 const Content = styled.div`
-	align-items: center;
-	justify-content: center;
+	align-items: flex-start;
+	justify-content: flex-start;
 	margin: 1rem;
-	text-align:center;
 	font-size: 1rem;
-	max-width: 50rem;
-	padding-right: 4rem;
-	padding-left: 4rem;
+	max-width: 50%;
 `
 
 const Title = styled(Content)`
@@ -109,7 +102,7 @@ const Menu = styled.div`
 `
 
 const MenuItem = styled.div`
-	margin: 1rem 4rem;
+	margin: 1rem 2rem;
 	opacity: ${props => props.active ? 1 : 0.87};
 	text-decoration: ${props => props.active ? "underline" : "none"};
 	:hover {

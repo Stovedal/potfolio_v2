@@ -1,9 +1,9 @@
 
 
 export const colors = {
-	primaryBackground: "black",
+	primaryBackground: "linear-gradient(to right, #527CE9, #00CDE9)",
 	primaryText: "white",
-	background: "linear-gradient(to right, #8e9eab, #eef2f3)"
+	background: "white"
 }
 
 export default colors

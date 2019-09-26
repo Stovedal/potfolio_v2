@@ -18,11 +18,6 @@
   color: currentColor;
   text-decoration: none;
 }
-
-.navigationItem a:hover {
-  text-decoration: underline;
-}
-
 header {
   display: flex;
   justify-content: space-between;

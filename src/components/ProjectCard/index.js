@@ -14,8 +14,11 @@ export default class ProjectCard extends Component {
 		const hide = this.props.display !== null && !display
 		return (
 			<Main
-				height={hide ? "0px" : display ? "86vh" : "30vw"}
-				width={hide ? "0px" : display ? "100vw" : "30vw"}>
+				height={hide ? "0px" : display ? "100%" : "30vw"}
+				width={hide ? "0px" : display ? "100%" : "30vw"}
+				display={hide ? "none" : "flex"}
+				opacity={hide ? "0" : "1"}>
+
 				<Background sizes={thumbImage.sizes}>
 					<Container>
 						<Info display={display ? "flex" : "none"}>
@@ -59,10 +62,14 @@ const Main = styled.div`
 	transform:${props => props.transform};
 	height: ${props => props.height};
 	width: ${props => props.width};
-	transition: all 0.15s ease-out;
+	opacity: ${props => props.opacity};
+	transition: all 0.25s ease-out;
 	margin:1rem;
 	padding:0rem;
-	display: flex;
+	display: ${props => props.display};
+	flex:1;
+	align-items: center;
+	justify-content: center;
 `
 
 

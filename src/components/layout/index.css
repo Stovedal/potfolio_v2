@@ -6,6 +6,10 @@
   font-display: swap;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
   font-size: 1em;
@@ -13,7 +17,8 @@ body {
   color: #373F49;
   background: #eee;
   margin: 0;
-  min-width: 800px;
+  scroll-snap-type: y mandatory;
+
 }
 
 img {
