@@ -5,39 +5,49 @@ import styled from 'styled-components'
 
 const SkillRow = (props) => {
 	return (
-		<Column style={{alignItems: "flex-start"}}>
+		<Column style={{alignItems: "flex-start", width: "10rem"}}>
 			<Title>{props.title}</Title>
 			{props.images.map((image, index) =>
-				<Container>
+				<Link href={image.description} target={"_blank"}>
+				<Row>
 					<ImageContainer>
 						<Img sizes={image.sizes} />
 					</ImageContainer>
 					<Name>{image.title}</Name>
-				</Container>
+				</Row>
+				</Link>
 			)}
 		</Column>
 	)
 }
 
-const Container = styled(Row)`
-	
+const Link = styled.a` 
+	text-decoration: none;
+	filter: grayscale(100%);
+	:hover {
+		filter: none;
+		cursor: pointer;
+	}
+	transition: all 0.2s ease;
 `
 
 const Name = styled.p`
 	margin:0;
+	text-decoration: none;
 `
 
 const ImageContainer = styled.div`
 	height: 1rem;
 	width: 1rem;
-	margin: 1rem;
-	filter: grayscale(100%);
+	margin: 0.5rem;
+	transition: all 0.3s ease;
 `
 
 const Title = styled.p`
 	color: #000;
 	opacity: 0.54;
 	font-weight: bold;
+	margin: 0.5rem;
 `
 
 export default SkillRow

@@ -28,11 +28,9 @@ export const Linear = styled.div`
 `
 
 export const SiteBackground = styled.div `
-	max-width: 100%;
 	margin: 0;
 	padding: 0;
 	background: ${colors.background};
-	min-width: 800px;
 
 `
 
@@ -43,29 +41,6 @@ export const PrimaryDiv = styled.div`
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	overflow: hidden;
 	opacity: 0.87;
-`
-
-export const TopBar = styled.div`
-	display:flex;
-	justify-content: flex-end;
-	align-items: center;
-	padding: 0rem;
-	background: transparent;
-	position:sticky;
-	width:100%;
-	top:1rem;
-	z-index:1;
-`
-
-export const NavButton = styled.div`
-	padding: 0.5rem 1.5rem;
-	text-decoration: none;
-	background: white;
-	opacity:0.87;
-	:hover {
-		opacity: 1;
-	}
-	transition: 0.1s ease-in;
 `
 
 export const Elevation = styled.div`
@@ -81,3 +56,32 @@ export const fadeIn = keyframes`
 					transform: 1;
 			  }
 			`;
+
+
+export const Page = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex:1;
+	min-height: 100vh;
+	width: 100vw;
+	scroll-snap-align: start;
+	@media only screen and (max-width: 600px) {
+		scroll-snap-align: none;
+		justify-content: center;
+		min-height: none;
+
+	}
+`
+
+export const Title = styled.p`
+	color: white;
+	font-size: 1rem;
+	opacity: 0.87;
+	padding: 0.5rem 1.5rem;
+	background: black;
+	font-weight: lighter;
+	@media only screen and (max-width: 600px) {
+		text-align: center;
+	}
+`

@@ -65,8 +65,11 @@ const Label = styled.p`
 const Card = styled.div`
 	width: 30rem;
 	height: 30rem;
-	border-radius: 1rem;
 	overflow: hidden;
+	@media only screen and (max-width: 600px){
+		width: 100vw;
+		height: 100vw
+	}
 `
 const Container = styled(Card)`
 	margin:1rem;

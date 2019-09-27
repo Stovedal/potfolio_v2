@@ -3,7 +3,7 @@ import BackgroundImage from 'gatsby-background-image'
 import styled, { keyframes } from 'styled-components'
 import { Row, PrimaryDiv, Elevation, fadeIn } from '../../style/components'
 import Label from './components/Label'
-import ProjectDisplay from '../ProjectDisplay'
+import ProjectDisplay from './components/ProjectDisplay'
 
 
 export default class ProjectCard extends Component {
@@ -14,9 +14,9 @@ export default class ProjectCard extends Component {
 		const hide = this.props.display !== null && !display
 		return (
 			<Main
-				height={hide ? "0px" : display ? "100%" : "30vw"}
-				width={hide ? "0px" : display ? "100%" : "30vw"}
-				display={hide ? "none" : "flex"}
+				displayed={display}
+				height={hide ? "0px" : display ? "86vh" : "30vw"}
+				width={hide ? "0px" : display ? "100vw" : "30vw"}
 				opacity={hide ? "0" : "1"}>
 
 				<Background sizes={thumbImage.sizes}>
@@ -49,11 +49,10 @@ const Container = styled.div`
 
 const Info = styled.div`
 	display: ${props => props.display};
-				height: 100%;
-				width: 100%;
-				opacity: 1;
-				background: white;
-
+			height: 100%;
+			width: 100%;
+			opacity: 1;
+			background: white;
 			flex-direction: row;
 			justify-content: space-between;
 			`
@@ -66,10 +65,12 @@ const Main = styled.div`
 	transition: all 0.25s ease-out;
 	margin:1rem;
 	padding:0rem;
-	display: ${props => props.display};
-	flex:1;
-	align-items: center;
-	justify-content: center;
+	display: flex;
+	@media only screen and (max-width: 600px){
+		width: 90vw;
+		height: ${props=> props.displayed ? "95vh" : "90vw"};
+	}
+	
 `
 
 
@@ -82,5 +83,7 @@ const Background = styled(BackgroundImage)`
 	width: 100%;
 	overflow: hidden;
 	animation: ${fadeIn} 0.5s 0s;
+	min-width: 300px;
+	min-height: 300px;
 
 			`

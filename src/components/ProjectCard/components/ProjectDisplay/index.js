@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
-import { Row, PrimaryDiv, Elevation, fadeIn } from '../../style/components'
+import { Row, PrimaryDiv, Elevation, fadeIn } from '../../../../style/components'
 import styles from './index.module.css'
 import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
@@ -23,7 +23,7 @@ export default class ProjectDisplay extends Component {
 		return (
 
 			<Body>
-								<Content>
+				<Content>
 					<Menu>
 						<MenuItem active={this.state.section == section.process} onClick={() => this.setState({ section: section.process })}>{section.process}</MenuItem>
 						<MenuItem active={this.state.section == section.challenges} onClick={() => this.setState({ section: section.challenges })}>{section.challenges}</MenuItem>
@@ -66,8 +66,8 @@ export default class ProjectDisplay extends Component {
 
 
 const Background = styled(BackgroundImage)`
-	height: 100%;
-	width: 60%;
+	height: 70%;
+	width: 70%;
 	animation: ${fadeIn} 0.5s 0s;
 `
 

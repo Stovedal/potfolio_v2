@@ -1,7 +1,8 @@
 
 
 export const colors = {
-	primaryBackground: "linear-gradient(to right, #527CE9, #00CDE9)",
+	//primaryBackground: "linear-gradient(127deg, #ff6a00 30%, #ee0979 100%) ",
+	primaryBackground: "yellowgreen",
 	primaryText: "white",
 	background: "white"
 }
