@@ -4,6 +4,7 @@ import { Row, PrimaryDiv, Elevation, fadeIn } from '../../../../style/components
 import styles from './index.module.css'
 import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
+import ProjectSlider from '../../../../components/ProjectSlider'
 
 export const section = { process: "Process", challenges: "Challenges", outcome: "Outcome" };
 
@@ -23,6 +24,8 @@ export default class ProjectDisplay extends Component {
 		return (
 
 			<Body>
+
+				<ProjectSlider images={[this.props.project.thumbImage, this.props.project.challengesImage,  this.props.project.solutionImage]}/>
 				<Content>
 					<Menu>
 						<MenuItem active={this.state.section == section.process} onClick={() => this.setState({ section: section.process })}>{section.process}</MenuItem>
@@ -31,7 +34,6 @@ export default class ProjectDisplay extends Component {
 					</Menu>
 					{this.getContent()}
 				</Content>
-				<Background sizes={this.getImage()}/>
 			</Body>
 		)
 	}
@@ -66,8 +68,8 @@ export default class ProjectDisplay extends Component {
 
 
 const Background = styled(BackgroundImage)`
-	height: 70%;
-	width: 70%;
+	height: 100%;
+	width: 100%;
 	animation: ${fadeIn} 0.5s 0s;
 `
 
@@ -82,6 +84,9 @@ const Body = styled.div`
 	margin:1rem;
 	align-items: space-between;
 	justify-content: space-between;
+	@media only screen and (max-width: 600px){
+		flex-direction: column;
+	}
 `
 
 

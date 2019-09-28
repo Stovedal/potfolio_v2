@@ -28,10 +28,11 @@ export const Linear = styled.div`
 `
 
 export const SiteBackground = styled.div `
-	margin: 0;
-	padding: 0;
+	margin: 0rem;
+	padding: 0rem;
+	overflow: hidden;
 	background: ${colors.background};
-
+	scroll-snap-type: y mandatory;
 `
 
 export const PrimaryDiv = styled.div`
@@ -70,7 +71,6 @@ export const Page = styled.div`
 		scroll-snap-align: none;
 		justify-content: center;
 		min-height: none;
-
 	}
 `
 
@@ -79,9 +79,10 @@ export const Title = styled.p`
 	font-size: 1rem;
 	opacity: 0.87;
 	padding: 0.5rem 1.5rem;
+	max-width: 100vw;
 	background: black;
 	font-weight: lighter;
 	@media only screen and (max-width: 600px) {
-		text-align: center;
+		text-align: flex-start;
 	}
 `

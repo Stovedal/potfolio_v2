@@ -8,6 +8,9 @@
 
 html {
   scroll-behavior: smooth;
+  margin: 0rem;
+  padding: 0rem;
+
 }
 
 body {
@@ -16,9 +19,9 @@ body {
   line-height: 1.65;
   color: #373F49;
   background: #eee;
-  margin: 0;
+  margin: 0rem;
+  padding: 0rem;
   scroll-snap-type: y mandatory;
-  width: 100vw;
 }
 h1,
 h2,

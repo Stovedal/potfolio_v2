@@ -9,7 +9,7 @@ class TopPage extends Component {
 		return (
 			<Page id="top">
 					<ImageContainer>
-						<Img sizes={person.image.sizes} style={{ minWidth: "1000px" }} />
+						<Img style={{width: "100vw", minWidth: "90rem"}} sizes={person.image.sizes} />
 						<Description>
 							<Title>This is me,</Title>
 							<Large>Sofia Tovedal</Large>
@@ -29,6 +29,7 @@ const Description = styled.div`
 	display:flex;
 	flex-direction:column;
 	align-items: flex-start;
+	max-width: 90vw;
 `
 
 const Large = styled(Title)` 
@@ -47,8 +48,9 @@ const Emphazied = styled.p`
 
 const ImageContainer = styled.div`
 	height: 100%;
-	width:100%;
-	overflow: hidden;
+	width: 100vw;
+	display: flex;
+	min-width: 1000px;
 `
 
 
