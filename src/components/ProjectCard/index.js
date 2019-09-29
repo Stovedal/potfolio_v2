@@ -3,31 +3,27 @@ import BackgroundImage from 'gatsby-background-image'
 import styled, { keyframes } from 'styled-components'
 import { Row, PrimaryDiv, Elevation, fadeIn } from '../../style/components'
 import Label from './components/Label'
-import ProjectDisplay from './components/ProjectDisplay'
+import ProjectDetails from './components/ProjectDetails'
 
 
 export default class ProjectCard extends Component {
 
 	render() {
 		const { thumbImage } = this.props.project
-		const display = this.props.display === this.props.index
-		const hide = this.props.display !== null && !display
-		return (
-			<Main
-				displayed={display}
-				height={hide ? "0px" : display ? "86vh" : "30vw"}
-				width={hide ? "0px" : display ? "100vw" : "30vw"}
-				opacity={hide ? "0" : "1"}>
+		const onDisplay = this.props.display === this.props.index
+		const hidden = this.props.display !== null && !onDisplay
 
+		if(onDisplay) {
+			return ( <ProjectDetails close={() => this.props.onDisplay()} project={this.props.project}/> )
+		}
+		return (
+			<Main onDisplay={onDisplay} hidden={hidden}>
 				<Background sizes={thumbImage.sizes}>
 					<Container>
-						<Info display={display ? "flex" : "none"}>
-							{(display) ? <ProjectDisplay project={this.props.project}/> : null}
-						</Info>
 						<Label
 							onClick={() => this.props.onDisplay()}
 							project={this.props.project}
-							display={display}
+							display={onDisplay}
 						/>
 					</Container>
 				</Background>
@@ -43,32 +39,18 @@ const Container = styled.div`
 			height: 100%;
 			width: 100%;
 			align-items: flex-start;
-
 		`
 
-
-const Info = styled.div`
-	display: ${props => props.display};
-			height: 100%;
-			width: 100%;
-			opacity: 1;
-			background: white;
-			flex-direction: row;
-			justify-content: space-between;
-			`
-
 const Main = styled.div`
-	transform:${props => props.transform};
-	height: ${props => props.height};
-	width: ${props => props.width};
-	opacity: ${props => props.opacity};
+	height: ${props => props.onDisplay ? "100%" : "40vh"};
+	width: ${props => props.onDisplay ? "100%" : "40vh"};
 	transition: all 0.25s ease-out;
 	margin:1rem;
 	padding:0rem;
-	display: flex;
+	display:  ${props => props.hidden ? "none" : "flex"};
 	@media only screen and (max-width: 600px){
 		width: 90vw;
-		height: ${props=> props.displayed ? "95vh" : "90vw"};
+		height: 90vw;
 	}
 	
 `
@@ -85,5 +67,4 @@ const Background = styled(BackgroundImage)`
 	animation: ${fadeIn} 0.5s 0s;
 	min-width: 300px;
 	min-height: 300px;
-
 			`

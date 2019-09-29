@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Row, Column, Text, Page, Title } from '../../../style/components'
+import { Row, Column, Text, Page, Heading } from '../../../style/components'
 import Img from 'gatsby-image'
 
 class TopPage extends Component {
 	render(){
 		const person = this.props.person
 		return (
-			<Page id="top">
+			<Page id="top" style={{overflow: "hidden"}}>
 					<ImageContainer>
 						<Img style={{width: "100vw", minWidth: "90rem"}} sizes={person.image.sizes} />
 						<Description>
-							<Title>This is me,</Title>
+							<Heading>This is me,</Heading>
 							<Large>Sofia Tovedal</Large>
-							<Title> a student of <Emphazied>Interaction Technology</Emphazied> and <Emphazied>Computer Science</Emphazied>, with a <i>very</i> cute japanese dog.</Title>
+							<Heading> a student of <Emphazied>Interaction Technology</Emphazied> and <Emphazied>Computer Science</Emphazied>, with a <i>very</i> cute japanese dog.</Heading>
 						</Description>
 					</ImageContainer>
 			</Page>
@@ -32,7 +32,7 @@ const Description = styled.div`
 	max-width: 90vw;
 `
 
-const Large = styled(Title)` 
+const Large = styled(Heading)` 
 	font-size: 3rem;
 	margin: 0rem;
 	display: inline;

@@ -30,9 +30,28 @@ export const Linear = styled.div`
 export const SiteBackground = styled.div `
 	margin: 0rem;
 	padding: 0rem;
-	overflow: hidden;
 	background: ${colors.background};
+	font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	line-height: 1.65;
+	color: #373F49;
+	scroll-snap-type: mandatory;
 	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+	overflow: scroll;
+	height: 100vh;
+	
+	@font-face {
+	font-family: "Avenir";
+	font-weight: 400;
+	font-style: normal;
+	src: url("/avenir-400.woff2") format("woff2");
+	font-display: swap;}
+	@media only screen and (max-width: 600px) {
+		scroll-snap-type: none;
+		scroll-snap-type: y none;
+	}
+
 `
 
 export const PrimaryDiv = styled.div`
@@ -67,22 +86,29 @@ export const Page = styled.div`
 	min-height: 100vh;
 	width: 100vw;
 	scroll-snap-align: start;
+	position: relative;
 	@media only screen and (max-width: 600px) {
-		scroll-snap-align: none;
 		justify-content: center;
 		min-height: none;
 	}
 `
 
-export const Title = styled.p`
-	color: white;
+export const Heading = styled.p`
 	font-size: 1rem;
 	opacity: 0.87;
 	padding: 0.5rem 1.5rem;
+	margin:0rem;
 	max-width: 100vw;
+	color: white;
 	background: black;
 	font-weight: lighter;
 	@media only screen and (max-width: 600px) {
 		text-align: flex-start;
 	}
+`
+export const HeadingSmall = styled(Heading)`
+	display: inline-block;
+	padding: 0rem 1rem;
+	border-radius: 0;
+	font-size: 0.85;
 `

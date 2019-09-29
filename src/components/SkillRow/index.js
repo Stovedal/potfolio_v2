@@ -7,17 +7,22 @@ const SkillRow = (props) => {
 	return (
 		<Column style={{alignItems: "flex-start", width: "10rem"}}>
 			<Title>{props.title}</Title>
-			{props.images.map((image, index) =>
-				<Link href={image.description} target={"_blank"}>
-				<Row>
-					<ImageContainer>
-						<Img sizes={image.sizes} />
-					</ImageContainer>
-					<Name>{image.title}</Name>
-				</Row>
-				</Link>
+			{props.images.map((image, index) => <Skill key={index} image={image}/>
 			)}
 		</Column>
+	)
+}
+
+export const Skill = (props) => {
+	return (
+		<Link href={props.image.description} target={"_blank"}>
+		<Row>
+			<ImageContainer>
+				<Img sizes={props.image.sizes} />
+			</ImageContainer>
+			<Name>{props.image.title}</Name>
+		</Row>
+		</Link>
 	)
 }
 

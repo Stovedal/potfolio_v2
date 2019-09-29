@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Row, Title, Text, Page } from '../../../style/components'
+import { Row, Heading, Text, Page } from '../../../style/components'
 import ImageSlider from '../../ImageSlider'
 import SkillRow from '../../SkillRow'
 
@@ -10,15 +10,16 @@ class AboutPage extends Component {
 		const skills = this.props.skills
 		return (
 			<Page id="about">
-					<Title>
+					<Heading>
 						A little more about me
-					</Title>
+					</Heading>
+					<AboutContainer>
 					<AboutContent>
 						<ImageSlider images={person.images} />
 						<div>
-							<Title>About me</Title>
+							<Heading>Who am I</Heading>
 							<AboutText dangerouslySetInnerHTML={{ __html: person.shortBio.childMarkdownRemark.html }} />
-							<Title >Technological skills</Title>
+							<Heading >Technological skills</Heading>
 							<SkillsContainer>
 							<SkillRow title={"Languages"} images={skills.languages}/>
 							<SkillRow title={"Frameworks"} images={skills.frameworks}/>
@@ -26,6 +27,7 @@ class AboutPage extends Component {
 							</SkillsContainer>
 						</div>
 					</AboutContent>
+					</AboutContainer>
 			</Page>
 		)
 	}
@@ -39,15 +41,19 @@ const SkillsContainer = styled.div`
  	margin-left: 2rem;
 	@media only screen and (max-width: 600px){
 		flex-wrap: wrap;
-
 	}
 
 `
 
-const AboutContent = styled(Row)`
-	height:100%;
-	align-items: space-around;
+const AboutContainer = styled.div`
 	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 90vh;
+	width: 100%;
+`
+
+const AboutContent = styled(Row)`
 	@media only screen and (max-width: 600px){
 		flex-direction: column;
 	}

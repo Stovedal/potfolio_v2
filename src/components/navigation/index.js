@@ -10,6 +10,7 @@ export default class Navigation extends Component {
     super(props)
     this.state = {
       hamburgerOpen: false,
+      hamburgerHover: false,
     }
   }
 
@@ -28,14 +29,16 @@ export default class Navigation extends Component {
               about
             </HamburgerButton>
           </a>
-          <a style={{ textDecoration: "none" }} href="#top">
+          <a style={{ textDecoration: "none" }} href="#contact">
             <HamburgerButton onClick={toggleHamburger} className={styles.navigationItem}>
               contact
             </HamburgerButton>
           </a>
         </HamburgerMenu>
-        <Hamburger onClick={toggleHamburger}>
-          <HamburgerImage src={require("./Hamburger.png")}></HamburgerImage>
+        <Hamburger onClick={toggleHamburger} onMouseEnter={() => this.setState({})}>
+          <HamburgerBar open={this.state.hamburgerOpen || this.state.hamburgerHover}/>
+          <HamburgerBar/>
+          <HamburgerBar/>
         </Hamburger>
 
         <TopBar>
@@ -51,7 +54,7 @@ export default class Navigation extends Component {
                   about
             </NavButton>
               </a>
-              <a style={{ textDecoration: "none" }} href="#top">
+              <a style={{ textDecoration: "none" }} href="#contact">
                 <NavButton className={styles.navigationItem}>
                   contact
             </NavButton>
@@ -65,7 +68,14 @@ export default class Navigation extends Component {
   }
 }
 
-
+const HamburgerBar = styled.div`
+  height: 0.3rem;
+  width: 1.5rem;
+  margin: 0.1rem;
+  background: black;
+  opacity: 0.87;
+  border-radius: 0.2rem;
+`
 
 const HamburgerMenu = styled.div`
   display: none;

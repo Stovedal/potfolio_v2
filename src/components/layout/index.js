@@ -1,16 +1,15 @@
 import React from 'react'
-import Container from './container'
 import Navigation from '../navigation'
 import styles from './index.css'
+import { SiteBackground } from '../../style/components'
 
 const Layout = ({ children }) => {
   return (
-    <Container>
+    <SiteBackground>
       <Navigation />
       {children}
-    </Container>
+    </SiteBackground>
   )
 }
-
 
 export default Layout

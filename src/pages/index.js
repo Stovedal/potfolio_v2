@@ -1,38 +1,39 @@
-import React from 'react'
-import get from 'lodash/get'
+import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-
 import Layout from '../components/layout'
-import styled from 'styled-components'
-import { Text, Row, Column, Page } from '../style/components'
 import pages from '../components/pages'
 
-class MainPage extends React.Component {
+export default class MainPage extends Component {
 
-	render() {
-		console.log(this.props.data);
-		
-		const projects = get(this, 'props.data.allContentfulProject.edges')
+	render() {		
+		const projects = this.props.data.allContentfulProject.edges
 		const person = this.props.data.contentfulPerson
 		const skills = this.props.data.contentfulSkills
-		console.log("no", this.props.data.contentfulSkills);
-
+		const channels = this.props.data.contentfulContact.channels
 		return (
 			<Layout>
 				<Helmet title={""} />
 				<pages.TopPage person={person}/>
 				<pages.ProjectsPage projects={projects}/>
 				<pages.AboutPage person={person} skills={skills}/>
+				<pages.ContactPage channels={channels} />
 			</Layout>
 		)
 	}
 }
 
-export default MainPage
-
-
 export const pageQuery = graphql`
   query Projects {
+
+	contentfulContact {
+		channels {
+			sizes(resizingBehavior: FILL) {
+				...GatsbyContentfulSizes_withWebp
+				}
+				title
+				description
+		}
+	}
 
 	contentfulSkills {
 		frameworks {
@@ -88,6 +89,7 @@ export const pageQuery = graphql`
 		node {
 		  id
 		  title
+		  color
 		  thumbText
 		  thumbImage {
             sizes( resizingBehavior: FILL) {
@@ -98,33 +100,14 @@ export const pageQuery = graphql`
             sizes(resizingBehavior: FILL) {
 			  ...GatsbyContentfulSizes_withWebp
 			}
+			title
+			description
 		  }
 		  approach
-		  approachImage {
-            sizes(resizingBehavior: FILL) {
-			  ...GatsbyContentfulSizes_withWebp
-			}
-			title
-			description
-		  }
 		  challenges
-		  challengesImage {
-            sizes(resizingBehavior: FILL) {
-			  ...GatsbyContentfulSizes_withWebp
-			}
-			title
-			description
-		  }
 		  solution
-		  solutionImage {
-            sizes(resizingBehavior: FILL) {
-			  ...GatsbyContentfulSizes_withWebp
-			}
-			title
-			description
-		  }
 		  outcome
-		  outcomeImage {
+		  images {
             sizes(resizingBehavior: FILL) {
 			  ...GatsbyContentfulSizes_withWebp
 			}

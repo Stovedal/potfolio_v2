@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Row, Column, Title, Page } from '../../../style/components'
+import { Row, Column, Heading, Page } from '../../../style/components'
 import ProjectCard from '../../ProjectCard'
 
 class ProjectsPage extends Component {
@@ -14,9 +14,9 @@ class ProjectsPage extends Component {
 		const projects = this.props.projects
 		return (
 			<Page id="projects">
-				<Title>
+				<Heading>
 						Some of my projects
-					</Title>
+					</Heading>
 					<Projects>
 						{projects.map((project, index) =>
 							<ProjectCard
