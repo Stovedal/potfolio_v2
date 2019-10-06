@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
 import styles from './index.module.css'
 import styled from 'styled-components'
 import { colors } from '../../style/colors'
@@ -16,6 +15,7 @@ export default class Navigation extends Component {
 
   render() {
     const toggleHamburger = () => this.setState({ hamburgerOpen: !this.state.hamburgerOpen })
+
     return (
       <Container>
         <HamburgerMenu open={this.state.hamburgerOpen}>
@@ -36,9 +36,9 @@ export default class Navigation extends Component {
           </a>
         </HamburgerMenu>
         <Hamburger onClick={toggleHamburger} onMouseEnter={() => this.setState({})}>
-          <HamburgerBar open={this.state.hamburgerOpen || this.state.hamburgerHover}/>
-          <HamburgerBar/>
-          <HamburgerBar/>
+          <HamburgerBar open={this.state.hamburgerOpen || this.state.hamburgerHover} />
+          <HamburgerBar />
+          <HamburgerBar />
         </Hamburger>
 
         <TopBar>
@@ -80,7 +80,7 @@ const HamburgerBar = styled.div`
 const HamburgerMenu = styled.div`
   display: none;
   background: white;
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 1000px){
     display: ${props => props.open ? "flex" : "none"};
     flex-direction: column;
     align-items: flex-start;
@@ -116,7 +116,7 @@ const Hamburger = styled.div`
   justify-content: center;
   opacity: 1;
   display: none;
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 1000px){
     display: flex;
   }
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -135,7 +135,7 @@ export const TopBar = styled.div`
 	align-items: center;
 	padding: 0rem;
 	background: transparent;
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 1000px){
     display: none;
   }
 `

@@ -3,10 +3,10 @@ import Navigation from '../navigation'
 import styles from './index.css'
 import { SiteBackground } from '../../style/components'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, noNavigation }) => {
   return (
     <SiteBackground>
-      <Navigation />
+      {(!noNavigation) ? <Navigation /> : null}
       {children}
     </SiteBackground>
   )

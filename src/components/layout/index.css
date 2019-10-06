@@ -9,3 +9,8 @@ html, body {
 a {
   color: black;
 }
+
+a:focus {
+  background-color: transparent;
+  background: none;
+}

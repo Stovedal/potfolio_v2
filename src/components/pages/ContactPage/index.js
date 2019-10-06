@@ -31,6 +31,8 @@ export default class ContactPage extends Component {
 }
 
 const Content = styled(Row)`
+	margin:2rem;
+
 	@media only screen and (max-width: 600px){
 		flex-direction: column;
 	}
@@ -45,7 +47,6 @@ const Container = styled.div`
 	height: 100%;
 	width: 100vw;
 	@media only screen and (max-width: 600px){
-		min-height: 100vh;
 	}
 `
 
@@ -61,10 +62,16 @@ const Container = styled.div`
 const Channel = styled(Row)`
 	text-decoration: none;
 	margin: 1rem 3rem;
+	filter: grayscale(100%);
 	@media only screen and (max-width: 600px){
 		margin: 0rem;
-
+		filter: none;
 	}
+	:hover {
+		filter: none;
+		color: black;
+	}
+	transition: 0.3s ease;
 `
 
 const Title = styled.p`

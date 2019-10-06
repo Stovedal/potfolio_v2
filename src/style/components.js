@@ -35,8 +35,8 @@ export const SiteBackground = styled.div `
 	font-size: 1em;
 	line-height: 1.65;
 	color: #373F49;
-	scroll-snap-type: mandatory;
-	scroll-snap-type: y mandatory;
+	scroll-snap-type: proximity;
+	scroll-snap-type: y proximity;
 	scroll-behavior: smooth;
 	overflow: scroll;
 	height: 100vh;
@@ -82,14 +82,15 @@ export const Page = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	flex:1;
 	min-height: 100vh;
 	width: 100vw;
 	scroll-snap-align: start;
 	position: relative;
+	overflow: hidden;
 	@media only screen and (max-width: 600px) {
 		justify-content: center;
-		min-height: none;
 	}
 `
 
@@ -97,7 +98,7 @@ export const Heading = styled.p`
 	font-size: 1rem;
 	opacity: 0.87;
 	padding: 0.5rem 1.5rem;
-	margin:0rem;
+	margin:1rem;
 	max-width: 100vw;
 	color: white;
 	background: black;

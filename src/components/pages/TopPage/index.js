@@ -9,7 +9,7 @@ class TopPage extends Component {
 		return (
 			<Page id="top" style={{overflow: "hidden"}}>
 					<ImageContainer>
-						<Img style={{width: "100vw", minWidth: "90rem"}} sizes={person.image.sizes} />
+						<Img style={{width: "100vw", height: "100vh", minWidth: "90rem"}} sizes={person.image.sizes} />
 						<Description>
 							<Heading>This is me,</Heading>
 							<Large>Sofia Tovedal</Large>

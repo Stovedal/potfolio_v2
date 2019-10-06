@@ -18,7 +18,7 @@ class AboutPage extends Component {
 						<ImageSlider images={person.images} />
 						<div>
 							<Heading>Who am I</Heading>
-							<AboutText dangerouslySetInnerHTML={{ __html: person.shortBio.childMarkdownRemark.html }} />
+							<AboutText>I'm Sofia Tovedal from the deep mid-north, I've studied interaction technology and Computer Science for more than 4 years now and I love it. During this time I've tried my hand at arranging all kinds of events as well as jumping in the deep end of the pool as a freelancing developer.</AboutText>
 							<Heading >Technological skills</Heading>
 							<SkillsContainer>
 							<SkillRow title={"Languages"} images={skills.languages}/>
@@ -49,8 +49,8 @@ const AboutContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 90vh;
 	width: 100%;
+	height: 100%;
 `
 
 const AboutContent = styled(Row)`

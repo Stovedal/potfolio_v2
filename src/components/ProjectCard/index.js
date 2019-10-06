@@ -3,31 +3,35 @@ import BackgroundImage from 'gatsby-background-image'
 import styled, { keyframes } from 'styled-components'
 import { Row, PrimaryDiv, Elevation, fadeIn } from '../../style/components'
 import Label from './components/Label'
-import ProjectDetails from './components/ProjectDetails'
+import Link from 'gatsby-link'
 
 
 export default class ProjectCard extends Component {
 
+	constructor(props) {
+		super(props)
+		this.state = {
+			expandLabel: false
+		}
+	}
+
 	render() {
 		const { thumbImage } = this.props.project
-		const onDisplay = this.props.display === this.props.index
-		const hidden = this.props.display !== null && !onDisplay
-
-		if(onDisplay) {
-			return ( <ProjectDetails close={() => this.props.onDisplay()} project={this.props.project}/> )
-		}
 		return (
-			<Main onDisplay={onDisplay} hidden={hidden}>
-				<Background sizes={thumbImage.sizes}>
-					<Container>
-						<Label
-							onClick={() => this.props.onDisplay()}
-							project={this.props.project}
-							display={onDisplay}
-						/>
-					</Container>
-				</Background>
-			</Main>
+			<Link to="/project/" state={{ project: this.props.project }}>
+				<Main
+					onMouseOver={() => this.setState({ expandLabel: true })}
+					onMouseLeave={() => this.setState({ expandLabel: false })}>
+					<Background sizes={thumbImage.sizes}>
+						<Container>
+							<Label
+								project={this.props.project}
+								expand={this.state.expandLabel}
+							/>
+						</Container>
+					</Background>
+				</Main>
+			</Link>
 		)
 	}
 }
@@ -42,12 +46,14 @@ const Container = styled.div`
 		`
 
 const Main = styled.div`
-	height: ${props => props.onDisplay ? "100%" : "40vh"};
-	width: ${props => props.onDisplay ? "100%" : "40vh"};
+	min-width: 300px;
+	min-height: 300px;
+	height: 40vh;
+	width: 40vh;
 	transition: all 0.25s ease-out;
 	margin:1rem;
 	padding:0rem;
-	display:  ${props => props.hidden ? "none" : "flex"};
+	display: flex;
 	@media only screen and (max-width: 600px){
 		width: 90vw;
 		height: 90vw;

@@ -11,6 +11,7 @@ class ProjectsPage extends Component {
 	}
 
 	render(){
+		
 		const projects = this.props.projects
 		return (
 			<Page id="projects">
@@ -24,7 +25,7 @@ class ProjectsPage extends Component {
 								onDisplay={() => this.setState({ display: (index === this.state.display) ? null : index })}
 								key={index}
 								index={index}
-								project={project.node}
+								project={project}
 							/>)}
 					</Projects>
 			</Page>

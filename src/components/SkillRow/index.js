@@ -16,15 +16,26 @@ const SkillRow = (props) => {
 export const Skill = (props) => {
 	return (
 		<Link href={props.image.description} target={"_blank"}>
-		<Row>
+		<SkillContainer>
 			<ImageContainer>
 				<Img sizes={props.image.sizes} />
 			</ImageContainer>
 			<Name>{props.image.title}</Name>
-		</Row>
+		</SkillContainer>
 		</Link>
 	)
 }
+
+const SkillContainer = styled(Row)`
+	filter: grayscale(100%);
+	:hover {
+		filter: none;
+		cursor: pointer;
+	}
+	@media only screen and (max-width: 600px){
+		filter: none;
+	}
+`
 
 const Link = styled.a` 
 	text-decoration: none;

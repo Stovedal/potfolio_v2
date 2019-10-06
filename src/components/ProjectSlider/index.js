@@ -68,7 +68,7 @@ const Chevron = styled.button`
 const Label = styled(HeadingSmall)`
 	position: absolute;
 	z-index: 1;
-	top:1rem;
+	bottom:1rem;
 	padding: 0rem 2rem;
 `
 

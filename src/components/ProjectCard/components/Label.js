@@ -5,29 +5,17 @@ import Img from 'gatsby-image'
 
 class Label extends Component {
 
-
-	constructor(props){
-		super(props)
-		this.state = {
-			open: false
-		}
-	}
-
 	render() {
 		const { title, skillImages, thumbText } = this.props.project
-		const { display, onClick } = this.props
 		return (
 			<Container 
 			style={{background: this.props.project.color}}
-			onClick={() => onClick()}
-			onMouseOver={() => this.setState({open: true})}
-			onMouseLeave={() => this.setState({open: false})}
 			>
 				<Head>
 					<Title>{title}</Title>
 					<Row>{skillImages.map((image, index) => <SkillIcon key={index}><Img sizes={image.sizes} /></SkillIcon>)}</Row>
 				</Head>
-				<Content open={this.state.open}>
+				<Content open={this.props.expand}>
 					<Description>
 						{thumbText}
 					</Description>
@@ -58,10 +46,6 @@ const Container = styled(PrimaryDiv)`
 	bottom: 20px;
 	right: 0px;
 	left: 0px;
-	:hover {
-		max-height: 12rem;
-		cursor: pointer;
-	}
 	transition: all 0.5s cubic-bezier(.25,.8,.25,1);
 
 `
@@ -71,7 +55,7 @@ const Content = styled.div`
 	flex:1;
 	flex-direction: column;
 	padding: 0rem;
-	max-height: ${props => props.open ? "12rem" : "0rem"};
+	max-height: ${props => props.open ? "15rem" : "0rem"};
 	bottom: 20px;
 	right: 0px;
 	left: 0px;
