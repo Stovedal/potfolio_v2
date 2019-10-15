@@ -10,16 +10,16 @@ class AboutPage extends Component {
 		const skills = this.props.skills
 		return (
 			<Page id="about">
-					<Heading>
+					<AboutHeading>
 						A little more about me
-					</Heading>
+					</AboutHeading>
 					<AboutContainer>
 					<AboutContent>
 						<ImageSlider images={person.images} />
 						<div>
-							<Heading>Who am I</Heading>
+							<AboutHeading>Who am I</AboutHeading>
 							<AboutText>I'm Sofia Tovedal from the deep mid-north, I've studied interaction technology and Computer Science for more than 4 years now and I love it. During this time I've tried my hand at arranging all kinds of events as well as jumping in the deep end of the pool as a freelancing developer.</AboutText>
-							<Heading >Technological skills</Heading>
+							<AboutHeading >Technological skills</AboutHeading>
 							<SkillsContainer>
 							<SkillRow title={"Languages"} images={skills.languages}/>
 							<SkillRow title={"Frameworks"} images={skills.frameworks}/>
@@ -33,6 +33,11 @@ class AboutPage extends Component {
 	}
 }
 
+const AboutHeading = styled(Heading)`
+	@media only screen and (max-width: 600px){
+		border-radius: 0px;
+	}
+`
 
 const SkillsContainer = styled.div`
 	display: flex;

@@ -145,7 +145,8 @@ export const NavButton = styled.div`
 	text-decoration: none;
 	background: ${colors.primaryBackground};
 	color: ${colors.primaryText};
-	opacity:0.87;
+  opacity:0.87;
+  border-radius: 4px;
 	:hover {
 		opacity: 1;
 	}

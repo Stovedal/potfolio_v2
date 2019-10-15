@@ -12,13 +12,18 @@ export default class Project extends Component {
 	}
 
 	render() {
-		const { project } = this.props.location.state
-		console.log(this.props);
+		const { location } = this.props
+		console.log(location, this.props);
 
+		if(location.state == null) {
+			return (<Layout noNavigation={true}/>)
+
+		}
+		
 		return (
 			<Layout noNavigation={true}>
 				<Container>
-					<Heading style={{ background: project.color, margin: "0rem", fontSize: "2rem" }}><Back onClick={() => this.goBack()}>{"<"}</Back>{project.title}</Heading>
+					<MainHeader style={{ background: location.state.project.color}}><Back onClick={() => this.goBack()}>{"<"}</Back>{location.state.project.title}</MainHeader>
 					<Content>
 						<DetailsContainer>
 
@@ -26,25 +31,25 @@ export default class Project extends Component {
 								Objective
 			</HeadingSmall>
 							<Text>
-								{project.thumbText}
+								{location.state.project.thumbText}
 							</Text>
 							<HeadingSmall >
 								Technologies
 			</HeadingSmall >
 							<Margin>
-								{project.skillImages.map((image, index) => <Skill key={index} image={image} />)}
+								{location.state.project.skillImages.map((image, index) => <Skill key={index} image={image} />)}
 							</Margin>
 							<HeadingSmall >
 								Outcome
 			</HeadingSmall>
-							<Text>{project.approach}</Text>
-							<Text>{project.challenges}</Text>
-							<Text>{project.solution}</Text>
-							<Text>{project.outcome}</Text>
-							<BackText onClick={() => this.goBack()} style={{color: project.color}}>{"<<< back to projects"}</BackText>
+							<Text>{location.state.project.approach}</Text>
+							<Text>{location.state.project.challenges}</Text>
+							<Text>{location.state.project.solution}</Text>
+							<Text>{location.state.project.outcome}</Text>
+							<BackText onClick={() => this.goBack()} style={{color: location.state.project.color}}>{"<<< back to projects"}</BackText>
 						</DetailsContainer>
 						<SliderContainer>
-							<ProjectSlider images={project.images} />
+							<ProjectSlider images={location.state.project.images} />
 						</SliderContainer>
 					</Content>
 				</Container>
@@ -54,6 +59,14 @@ export default class Project extends Component {
 
 
 }
+
+const MainHeader = styled(Heading)`
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	margin:0rem;
+	font-size: 2rem;
+	opacity:1;
+	border-radius: 0px;
+`
 
 const BackText = styled.p`
 	padding:1rem;

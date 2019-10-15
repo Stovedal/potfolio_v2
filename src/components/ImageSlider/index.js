@@ -58,6 +58,8 @@ const Label = styled.p`
 	position: absolute;
 	z-index: 1;
 	bottom:1rem;
+	border-radius: 4px;
+
 	left: 1rem;
 	padding: 0.5rem 1rem;
 `
@@ -65,6 +67,7 @@ const Label = styled.p`
 const Card = styled.div`
 	width: 30rem;
 	height: 30rem;
+	border-radius: 4px;
 	overflow: hidden;
 	@media only screen and (max-width: 600px){
 		width: 100vw;

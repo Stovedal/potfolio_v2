@@ -96,13 +96,14 @@ export const Page = styled.div`
 
 export const Heading = styled.p`
 	font-size: 1rem;
-	opacity: 0.87;
+	border-radius: 4px;
 	padding: 0.5rem 1.5rem;
 	margin:1rem;
 	max-width: 100vw;
 	color: white;
-	background: black;
+	background-color: rgba(0,0,0,0.87);
 	font-weight: lighter;
+	
 	@media only screen and (max-width: 600px) {
 		text-align: flex-start;
 	}
@@ -110,6 +111,6 @@ export const Heading = styled.p`
 export const HeadingSmall = styled(Heading)`
 	display: inline-block;
 	padding: 0rem 1rem;
-	border-radius: 0;
 	font-size: 0.85;
+	
 `

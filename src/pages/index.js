@@ -9,8 +9,7 @@ export default class MainPage extends Component {
 		const projects = this.props.data.contentfulProjects.projects
 		const person = this.props.data.contentfulPerson
 		const skills = this.props.data.contentfulSkills
-		const channels = this.props.data.contentfulContact.channels
-		console.log(this.props.data);
+		const contact = this.props.data.contentfulContact
 		
 		return (
 			<Layout>
@@ -18,7 +17,7 @@ export default class MainPage extends Component {
 				<pages.TopPage person={person}/>
 				<pages.ProjectsPage projects={projects}/>
 				<pages.AboutPage person={person} skills={skills}/>
-				<pages.ContactPage channels={channels} />
+				<pages.ContactPage contact={contact} />
 			</Layout>
 		)
 	}
@@ -34,6 +33,13 @@ export const pageQuery = graphql`
 				}
 				title
 				description
+		}
+
+		image {
+			sizes(resizingBehavior: FILL) {
+				...GatsbyContentfulSizes_withWebp
+				}
+				title
 		}
 	}
 

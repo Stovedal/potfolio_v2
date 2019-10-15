@@ -36,20 +36,6 @@ const ImageCard = (props) => {
 	)
 }
 
-const ImageContainer = styled.div`
-	min-height: 10rem;
-	min-width: 10rem;
-	height:50%;
-	width: 50%;
-`
-
-const Description = styled.div`
-	color: #000;
-	width: 300px;
-	height: 300px;
-	z-index: 1;
-`
-
 const Chevron = styled.button`
 	height: 2rem;
 	width: 2rem;
