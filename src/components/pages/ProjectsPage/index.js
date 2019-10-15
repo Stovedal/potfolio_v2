@@ -10,14 +10,16 @@ class ProjectsPage extends Component {
 		this.state = { display: null }
 	}
 
-	render(){
-		
+	render() {
+
 		const projects = this.props.projects
 		return (
 			<Page id="projects">
-				<Heading>
-						Some of my projects
-					</Heading>
+				<RowContainer>
+					<Container>
+						<Header>Work</Header>
+						<SubHeader>These are a few of the projects I've done when I haven't been studying.</SubHeader>
+					</Container>
 					<Projects>
 						{projects.map((project, index) =>
 							<ProjectCard
@@ -28,20 +30,69 @@ class ProjectsPage extends Component {
 								project={project}
 							/>)}
 					</Projects>
+				</RowContainer>
 			</Page>
 		)
 	}
 }
 
+const RowContainer = styled(Row)`
+	align-items: flex-start; 
+	justify-content: space-between; 
+	width: 100%;
+
+	@media only screen and (max-width: 600px){
+		flex-direction: column;
+		flex-wrap: nowrap;
+		padding: 0rem;
+	}
+`
+
+const SubHeader = styled.p`
+	color: black;
+	max-width: 400px;
+	margin:3rem;
+	opacity: 0.87;
+	font-weight: 200;
+	@media only screen and (max-width: 600px){
+		margin-top:1rem;
+	}
+`
+
+const Container = styled.div`
+	height: 100vh;
+	@media only screen and (max-width: 600px){
+		padding: 0rem;
+		display: block;
+		height: 40%;
+	}
+` 
+
+const Header = styled.p`
+	font-size: 4rem;
+	margin:3rem;
+	color: black;
+	opacity: 0.87;
+	display: inline-block;
+	font-weight: bolder;
+	@media only screen and (max-width: 600px){
+		margin: 1rem 3rem;
+	}
+`
 const Projects = styled.div`
+
 	display: flex;
+	padding: 4rem;
 	flex:1;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+	align-self: center;
+	max-width: 800px;
 	@media only screen and (max-width: 600px){
 		flex-direction: column;
 		flex-wrap: nowrap;
+		padding: 0rem;
 	}
 `
 

@@ -42,7 +42,7 @@ const Chevron = styled.button`
 	border-radius: 1rem;
 	margin: 0.5rem;
 	color: white;
-	background: black;
+	background: #DC395F;
 	border:none;
 	opacity: 0.38;
 	outline: none;

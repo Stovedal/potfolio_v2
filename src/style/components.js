@@ -31,19 +31,17 @@ export const SiteBackground = styled.div `
 	margin: 0rem;
 	padding: 0rem;
 	background: ${colors.background};
-	font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+	font-family:  "Hiragino Sans", "Avenir", Tahoma, Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	line-height: 1.65;
-	color: #373F49;
-	scroll-snap-type: proximity;
-	scroll-snap-type: y proximity;
+	scroll-snap-type: mandatory;
+	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
 	overflow: scroll;
 	height: 100vh;
 	
 	@font-face {
 	font-family: "Avenir";
-	font-weight: 400;
 	font-style: normal;
 	src: url("/avenir-400.woff2") format("woff2");
 	font-display: swap;}
@@ -81,7 +79,7 @@ export const fadeIn = keyframes`
 export const Page = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
 	flex:1;
 	min-height: 100vh;
@@ -95,15 +93,12 @@ export const Page = styled.div`
 `
 
 export const Heading = styled.p`
-	font-size: 1rem;
+	font-size: 1.5rem;
 	border-radius: 4px;
 	padding: 0.5rem 1.5rem;
-	margin:1rem;
 	max-width: 100vw;
-	color: white;
-	background-color: rgba(0,0,0,0.87);
-	font-weight: lighter;
-	
+	font-weight: bolder;
+	color: black;
 	@media only screen and (max-width: 600px) {
 		text-align: flex-start;
 	}
@@ -112,5 +107,4 @@ export const HeadingSmall = styled(Heading)`
 	display: inline-block;
 	padding: 0rem 1rem;
 	font-size: 0.85;
-	
 `

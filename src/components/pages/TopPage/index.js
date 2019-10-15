@@ -11,9 +11,9 @@ class TopPage extends Component {
 					<ImageContainer>
 						<Img style={{width: "100vw", height: "100vh", minWidth: "90rem"}} sizes={person.image.sizes} />
 						<Description>
-							<Heading>This is me,</Heading>
+							<Other>This is me,</Other>
 							<Large>Sofia Tovedal</Large>
-							<Heading> a student of <Emphazied>Interaction Technology</Emphazied> and <Emphazied>Computer Science</Emphazied>, with a <i>very</i> cute japanese dog.</Heading>
+							<Other> a student of <Emphazied>Interaction Technology</Emphazied> and <Emphazied>Computer Science</Emphazied>, with a <i>very</i> cute japanese dog.</Other>
 						</Description>
 					</ImageContainer>
 			</Page>
@@ -21,6 +21,11 @@ class TopPage extends Component {
 	}
 }
 
+const Other = styled(Heading)`
+	color:  rgba(255,255,255,0.87);
+	font-weight: 200;
+	font-size: 1rem;
+`
 
 const Description = styled.div`
 	position:absolute;
@@ -30,11 +35,16 @@ const Description = styled.div`
 	flex-direction:column;
 	align-items: flex-start;
 	max-width: 90vw;
+	color:  rgba(255,255,255,0.87);
+	background: linear-gradient(to top right, rgba(0,0,0,0.54), transparent);
 `
 
 const Large = styled(Heading)` 
-	font-size: 3rem;
+	font-size: 4rem;
+	font-weight: 600;
 	margin: 0rem;
+	padding: 0rem 1rem;
+	color:  rgba(255,255,255,0.87);
 	display: inline;
 	display: flex;
 	flex-direction:column;

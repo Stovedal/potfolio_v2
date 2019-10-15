@@ -47,6 +47,7 @@ const Container = styled(PrimaryDiv)`
 	right: 0px;
 	left: 0px;
 	transition: all 0.5s cubic-bezier(.25,.8,.25,1);
+	opacity: 1;
 
 `
 

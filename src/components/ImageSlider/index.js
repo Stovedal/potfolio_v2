@@ -42,26 +42,25 @@ const Chevron = styled.button`
 	border-radius: 1rem;
 	margin: 0.5rem;
 	color: white;
-	background: black;
+	background: #FF9F1C;
 	border:none;
-	opacity: 0.38;
+	opacity: 0.87;
 	outline: none;
 	:hover{
-		opacity: 0.54;
+		opacity: 1;
 	}
 `
 
 const Label = styled.p`
-	background: black;
-	opacity: 0.87;
-	color: white;
+	color:black;
+	background: white;
 	position: absolute;
 	z-index: 1;
 	bottom:1rem;
 	border-radius: 4px;
-
 	left: 1rem;
 	padding: 0.5rem 1rem;
+	font-weight: 200;
 `
 
 const Card = styled.div`

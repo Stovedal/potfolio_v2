@@ -2,7 +2,8 @@
 html, body {
   margin: 0rem;
   padding: 0rem;
-	overflow: hidden;
+  overflow: hidden;
+  font-family: "Hiragino Sans", "Avenir", Tahoma, Arial, Helvetica, sans-serif;
 
 }
 

@@ -56,7 +56,7 @@ const Image = styled(BackgroundImage)`
 	overflow: hidden;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-end;
 	flex-direction: column;
 `
 
@@ -73,9 +73,8 @@ const Container = styled.div`
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background: black;
-	background-color: rgba(255,255,255,0.12);
 	border-radius: 4px;
+	margin: 4rem;
 	@media only screen and (max-width: 600px){
 	}
 `
@@ -86,40 +85,37 @@ const Header = styled.p`
 	font-weight: bolder;
 	color: black;
 	@media only screen and (max-width: 600px){
-		font-size: 2rem;
+		text-align:center;
 	}
 
  `
 
 const SubTitle = styled.p`
 	margin:1rem;
-	color:white;
+	color: rgba(255,255,255,0.87);
 	text-align: center;
  `
 
 const ChannelContainer = styled(Row)`
 	text-decoration: none;
 	margin: 1rem 3rem;
-	@media only screen and (max-width: 600px){
-		margin: 0rem;
-	}
-	:hover {
-	}
-	transition: 0.3s ease;
+	padding: 0rem 1rem;
+	border-radius: 3rem;
+
+  	z-index: 2;
 `
 
 const Title = styled.p`
-	color: white;
-	margin:1rem;
+	color: rgba(255,255,255,0.87);
+	margin:0rem 1rem;
 `
 
 const IconContainer = styled.div`
 	height: 1.5rem;
 	width: 1.5rem;
-	margin: 1rem;
-	filter: ${props => props.hovered ? "none" : "brightness(0) invert(1)"};
+	margin: 0.75rem;
+	filter: ${props => props.hovered ? "none" : "brightness(0) invert(0.87)"};
 	@media only screen and (max-width: 600px){
-		margin: 0rem;
 		filter: none;
 	}
 	transition: all 0.3s ease;

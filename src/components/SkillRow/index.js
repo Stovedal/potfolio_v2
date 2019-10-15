@@ -44,26 +44,32 @@ const Link = styled.a`
 		filter: none;
 		cursor: pointer;
 	}
+	@media only screen and (max-width: 600px){
+		filter: none;
+	}
 	transition: all 0.2s ease;
 `
 
 const Name = styled.p`
 	margin:0;
 	text-decoration: none;
+	font-weight: 200;
 `
 
 const ImageContainer = styled.div`
 	height: 1rem;
 	width: 1rem;
 	margin: 0.5rem;
+	margin-left: 0rem;
 	transition: all 0.3s ease;
 `
 
 const Title = styled.p`
 	color: #000;
 	opacity: 0.54;
-	font-weight: bold;
+	font-weight: 400;
 	margin: 0.5rem;
+	margin-left: 0rem;
 `
 
 export default SkillRow
