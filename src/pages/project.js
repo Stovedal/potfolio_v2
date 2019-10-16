@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
 import Layout from '../components/layout'
-import { Page, HeadingSmall, Heading, Row } from '../style/components'
+import { Row, Header, SubHeader } from '../style/components'
 import ProjectSlider from '../components/ProjectSlider'
 import { Skill } from '../components/SkillRow'
 
@@ -23,25 +23,23 @@ export default class Project extends Component {
 		return (
 			<Layout noNavigation={true}>
 				<Container>
-					<MainHeader style={{ background: location.state.project.color}}><Back onClick={() => this.goBack()}>{"<"}</Back>{location.state.project.title}</MainHeader>
 					<Content>
 						<DetailsContainer>
-
-							<HeadingSmall >
+							<SubHeader >
 								Objective
-			</HeadingSmall>
+			</SubHeader>
 							<Text>
 								{location.state.project.thumbText}
 							</Text>
-							<HeadingSmall >
+							<SubHeader >
 								Technologies
-			</HeadingSmall >
+			</SubHeader >
 							<Margin>
 								{location.state.project.skillImages.map((image, index) => <Skill key={index} image={image} />)}
 							</Margin>
-							<HeadingSmall >
+							<SubHeader >
 								Outcome
-			</HeadingSmall>
+			</SubHeader>
 							<Text>{location.state.project.approach}</Text>
 							<Text>{location.state.project.challenges}</Text>
 							<Text>{location.state.project.solution}</Text>
@@ -49,7 +47,9 @@ export default class Project extends Component {
 							<BackText onClick={() => this.goBack()} style={{color: location.state.project.color}}>{"<<< back to projects"}</BackText>
 						</DetailsContainer>
 						<SliderContainer>
-							<ProjectSlider images={location.state.project.images} />
+						<Header style={{ color: location.state.project.color}}>{location.state.project.title}</Header>
+
+							<ProjectSlider color={location.state.project.color} images={location.state.project.images} />
 						</SliderContainer>
 					</Content>
 				</Container>
@@ -60,13 +60,6 @@ export default class Project extends Component {
 
 }
 
-const MainHeader = styled(Heading)`
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	margin:0rem;
-	font-size: 2rem;
-	opacity:1;
-	border-radius: 0px;
-`
 
 const BackText = styled.p`
 	padding:1rem;
@@ -81,22 +74,10 @@ const Margin = styled.div`
 	margin-left: 1rem;
 `
 
-const Back = styled.div`
-	display: inline;
-	padding: 1rem;
-	margin-right: 1rem;
-	opacity: 0.87;
-	user-select: none;
-	:hover {
-		cursor: pointer;
-		opacity:1;
-	}
-`
 
 const Content = styled(Row)` 
-	margin-top: 1rem;
 	align-items: flex-start;
-	flex-direction: row;
+	flex-direction: row-reverse;
 	@media only screen and (max-width: 600px){
 		display: flex;
 		flex-direction: column-reverse;
@@ -127,20 +108,29 @@ const Container = styled.div`
 const Text = styled.p` 
 	padding:0.5rem 1rem;
 	max-width: 95vw;
+	font-weight: 200;
+
 
 `
 const SliderContainer = styled.div`
-	max-width: 35rem;
-	max-height: 35rem;
+	width: 50vw;
+	height: 50vw;
 	width: 40%;
 	height: 40%;
 	align-items: center;
 	justify-content: center;
-	margin:1rem;
+	padding: 3rem;
+	@media only screen and (max-width: 600px){
+		width: 100vw;
+		padding: 1rem;
+	}
 `
 
 const DetailsContainer = styled.div`
+	width: 50vw;
 	margin:1rem;
 	overflow: scroll;
-
+	@media only screen and (max-width: 600px){
+		width: 100vw;
+	}
 `

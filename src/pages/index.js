@@ -13,7 +13,7 @@ export default class MainPage extends Component {
 		
 		return (
 			<Layout>
-				<Helmet title={"home"} />
+				<Helmet title={"Sofia Tovedal"} />
 				<pages.TopPage person={person}/>
 				<pages.ProjectsPage projects={projects}/>
 				<pages.AboutPage person={person} skills={skills}/>

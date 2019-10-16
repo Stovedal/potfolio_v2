@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Row, Column, Text, Page } from '../../../style/components'
+import { Row, Page, HeaderWhite } from '../../../style/components'
 import Img from 'gatsby-image'
 import BackgroundImage from 'gatsby-background-image'
 
@@ -10,7 +10,7 @@ export default class ContactPage extends Component {
 			<Page id="contact">
 				<Image sizes={this.props.contact.image.sizes}>
 					<Container>
-						<Header style={{ color: "white" }}>Get in touch!</Header>
+						<HeaderWhite>Get in touch!</HeaderWhite>
 						<SubTitle>I'm especially looking for somewhere to do my thesis!</SubTitle>
 						<Content>
 							{this.props.contact.channels.map((channel) => <Channel channel={channel} />)}
@@ -64,6 +64,7 @@ const Content = styled(Row)`
 	margin:2rem;
 	@media only screen and (max-width: 600px){
 		flex-direction: column;
+		margin:1rem;
 	}
 
 `
@@ -79,21 +80,16 @@ const Container = styled.div`
 	}
 `
 
-const Header = styled.p`
-	font-size: 4rem;
-	margin:1rem;
-	font-weight: bolder;
-	color: black;
-	@media only screen and (max-width: 600px){
-		text-align:center;
-	}
-
- `
-
 const SubTitle = styled.p`
 	margin:1rem;
 	color: rgba(255,255,255,0.87);
 	text-align: center;
+	max-width: 100vw;
+	text-align:center;
+
+	@media only screen and (max-width: 600px){
+		margin: 0.5rem;
+	}
  `
 
 const ChannelContainer = styled(Row)`
@@ -101,8 +97,10 @@ const ChannelContainer = styled(Row)`
 	margin: 1rem 3rem;
 	padding: 0rem 1rem;
 	border-radius: 3rem;
-
-  	z-index: 2;
+	  z-index: 2;
+	  @media only screen and (max-width: 600px){
+		margin: 1rem;
+	}
 `
 
 const Title = styled.p`

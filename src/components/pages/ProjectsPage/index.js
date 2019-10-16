@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Row, Column, Heading, Page } from '../../../style/components'
+import { Row, Column, Header, Page } from '../../../style/components'
 import ProjectCard from '../../ProjectCard'
 
 class ProjectsPage extends Component {
@@ -40,7 +40,6 @@ const RowContainer = styled(Row)`
 	align-items: flex-start; 
 	justify-content: space-between; 
 	width: 100%;
-
 	@media only screen and (max-width: 600px){
 		flex-direction: column;
 		flex-wrap: nowrap;
@@ -61,28 +60,15 @@ const SubHeader = styled.p`
 
 const Container = styled.div`
 	height: 100vh;
+	padding:1rem;
 	@media only screen and (max-width: 600px){
 		padding: 0rem;
 		display: block;
 		height: 40%;
 	}
 ` 
-
-const Header = styled.p`
-	font-size: 4rem;
-	margin:3rem;
-	color: black;
-	opacity: 0.87;
-	display: inline-block;
-	font-weight: bolder;
-	@media only screen and (max-width: 600px){
-		margin: 1rem 3rem;
-	}
-`
 const Projects = styled.div`
-
 	display: flex;
-	padding: 4rem;
 	flex:1;
 	flex-wrap: wrap;
 	align-items: center;

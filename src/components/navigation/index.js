@@ -112,6 +112,7 @@ const Hamburger = styled.div`
   display: none;
   @media only screen and (max-width: 1000px){
     display: flex;
+    box-shadow: none;
   }
   box-shadow: 0 1px 3px rgba(255,159,28,0.12), 0 1px 2px rgba(255,159,28,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -160,14 +161,14 @@ export const HamburgerButton = styled.div`
   padding: 0.5rem 2rem 0.5rem 0.5rem;
   margin: 0.5rem;
   width: 6rem;
-  background: rgba(255,159,28,1);;
-  color: white;
+  background: white;
+  color: black;
+  opacity:0.87;
   padding: 0.5rem 1rem;
   border-radius:2rem;
   font-weight: 400;
   text-decoration: none;
   animation: width 0.5s ease-in;
-  box-shadow: 0 14px 28px rgba(255,159,28,0.25), 0 10px 10px rgba(255,159,28,0.22);
 	:hover {
 		font-size: 1.2;
   }

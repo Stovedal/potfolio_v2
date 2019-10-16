@@ -29,12 +29,15 @@ class Label extends Component {
 
 const Title = styled.p`
 	color: white;
+	font-weight: 200;
+
 `
 const Description = styled.p`
 	margin:1.5rem;
 	margin-top: 0rem;
 	color: white;
-
+	font-weight: 200;
+	font-size:1rem;
 `
 
 const Container = styled(PrimaryDiv)`

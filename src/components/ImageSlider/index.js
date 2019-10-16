@@ -5,18 +5,26 @@ import Carousel from 'nuka-carousel'
 import { Column } from '../../style/components'
 
 class ImageSlider extends Component {
-	render() {
+
+	constructor(props) {
+		super(props)
+		this.carousel = React.createRef()
+	}
+
+	render() {		
 		return (
 			<Column>
 				<Container>
 					<Carousel
-						renderCenterLeftControls={({ previousSlide }) => (
-							<Chevron onClick={previousSlide}>{"<"}</Chevron>
-						)}
-						renderCenterRightControls={({ nextSlide }) => (
-							<Chevron onClick={nextSlide}>></Chevron>
-						)}
-					>
+						ref={(c) => this.carousel = c}
+						renderCenterLeftControls={({ previousSlide }) => {
+							let currentSlide = (this.carousel.state) ? this.carousel.state.currentSlide : 0
+							return <Chevron onClick={(currentSlide === 0) ? () => this.carousel.goToSlide(this.props.images.length - 1) : previousSlide}>{"<"}</Chevron>
+						}}
+						renderCenterRightControls={({ nextSlide }) => {
+							let currentSlide = (this.carousel.state) ? this.carousel.state.currentSlide : 0
+							return <Chevron onClick={(currentSlide === this.props.images.length - 1) ? () => this.carousel.goToSlide(0) : nextSlide}>></Chevron>
+						}}>
 						{this.props.images.map((image, index) =>
 							<ImageCard key={index} image={image} />
 						)}

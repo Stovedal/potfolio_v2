@@ -75,12 +75,8 @@ const Background = styled(BackgroundImage)`
 	animation: ${fadeIn} 0.5s 0s;
 	min-width: 300px;
 	min-height: 300px;
-
 	:hover {
 		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	}
 	transition: all 0.5s cubic-bezier(.25,.8,.25,1);
-	@media only screen and (max-width: 600px){
-		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-	}
 			`

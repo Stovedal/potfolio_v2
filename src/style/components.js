@@ -92,19 +92,34 @@ export const Page = styled.div`
 	}
 `
 
-export const Heading = styled.p`
-	font-size: 1.5rem;
-	border-radius: 4px;
-	padding: 0.5rem 1.5rem;
-	max-width: 100vw;
+export const Header = styled.p`
+	font-size: 4rem;
+	font-family: "Hiragino Sans";
 	font-weight: bolder;
 	color: black;
+	opacity: 0.87;
+	margin: 0rem;
+	margin-left: 1rem;
+	padding: 0rem;
 	@media only screen and (max-width: 600px) {
-		text-align: flex-start;
+		font-size: 3rem;
 	}
 `
-export const HeadingSmall = styled(Heading)`
-	display: inline-block;
-	padding: 0rem 1rem;
-	font-size: 0.85;
+
+export const HeaderWhite = styled(Header)`
+	color: white;
+`
+
+export const SubHeader = styled(Header)`
+	margin: 0rem;
+	margin-left: 1rem;
+	margin-bottom: 1rem;
+	margin-top: 2rem;
+	font-size: 1rem;
+	font-weight: 800;
+	padding:0rem;
+	@media only screen and (max-width: 600px) {
+		text-align: left;
+		font-size: 1rem;
+	}
 `

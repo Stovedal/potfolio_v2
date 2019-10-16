@@ -5,17 +5,26 @@ import Carousel from 'nuka-carousel'
 import { Column, HeadingSmall } from '../../style/components'
 
 class ProjectSlider extends Component {
+
+	constructor(props) {
+		super(props)
+		this.carousel = React.createRef()
+	}
+
 	render() {
 		return (
 			<Column>
 				<Container>
 					<Carousel
-						renderCenterLeftControls={({ previousSlide }) => (
-							<Chevron onClick={previousSlide}>{"<"}</Chevron>
-						)}
-						renderCenterRightControls={({ nextSlide }) => (
-							<Chevron onClick={nextSlide}>></Chevron>
-						)}
+						ref={(c) => this.carousel = c}
+						renderCenterLeftControls={({ previousSlide }) => {
+							let currentSlide = (this.carousel.state) ? this.carousel.state.currentSlide : 0
+							return <Chevron color={this.props.color} onClick={(currentSlide === 0) ? () => this.carousel.goToSlide(this.props.images.length - 1) : previousSlide}>{"<"}</Chevron>
+						}}
+						renderCenterRightControls={({ nextSlide }) => {
+							let currentSlide = (this.carousel.state) ? this.carousel.state.currentSlide : 0
+							return <Chevron color={this.props.color} onClick={(currentSlide === this.props.images.length - 1) ? () => this.carousel.goToSlide(0) : nextSlide}>></Chevron>
+						}}
 					>
 						{this.props.images.map((image, index) =>
 							<ImageCard key={index} image={image} />
@@ -42,20 +51,26 @@ const Chevron = styled.button`
 	border-radius: 1rem;
 	margin: 0.5rem;
 	color: white;
-	background: #DC395F;
+	background: ${props => props.color!=null ? props.color : "#DC395F" } ;
 	border:none;
-	opacity: 0.38;
+	opacity: 0.54;
 	outline: none;
 	:hover{
-		opacity: 0.54;
+		opacity: 1;
 	}
 `
-
-const Label = styled(HeadingSmall)`
+const Label = styled.p`
+	color:black;
+	background: white;
 	position: absolute;
 	z-index: 1;
 	bottom:1rem;
-	padding: 0rem 2rem;
+	border-radius: 4px;
+	left: 1rem;
+	padding: 0.5rem 1rem;
+	font-weight: 200;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
 `
 
 const Card = styled.div`
